@@ -64,7 +64,7 @@ test("sanitiseData coerces scores, clamps goals, and keeps valid status", () => 
 });
 
 test("store seeds on first init and round-trips saves", async () => {
-  const dir = await mkdtemp(join(tmpdir(), "wc26-store-"));
+  const dir = await mkdtemp(join(tmpdir(), "scoreboard-store-"));
   const dataFile = join(dir, "scoreboard.json");
 
   try {

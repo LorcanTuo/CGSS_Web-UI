@@ -1,5 +1,5 @@
 const API_BASE = "https://v3.football.api-sports.io";
-const WORLD_CUP_LEAGUE_ID = 1;
+const FOOTBALL_LEAGUE_ID = 1;
 
 // API-Football status codes -> our internal status.
 const FINISHED = new Set(["FT", "AET", "PEN"]);
@@ -85,10 +85,10 @@ export class FootballApi {
     return Boolean(this.apiKey);
   }
 
-  // List World Cup fixtures for a season, optionally filtered by round substring.
-  async listFixtures(season = 2026, roundMatch = null) {
+  // List fixtures for a season, optionally filtered by round substring.
+  async listFixtures(season, roundMatch = null) {
     const fixtures = await apiFetch(
-      `/fixtures?league=${WORLD_CUP_LEAGUE_ID}&season=${season}`,
+      `/fixtures?league=${FOOTBALL_LEAGUE_ID}&season=${season}`,
       this.apiKey
     );
 

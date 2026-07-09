@@ -15,7 +15,7 @@ const PORT = Number(process.env.PORT) || 8080;
 const DATA_FILE = process.env.DATA_FILE || "/data/scoreboard.json";
 const COOKIE_SECURE = process.env.COOKIE_SECURE !== "false";
 const FOOTBALL_API_KEY = process.env.FOOTBALL_API_KEY || "";
-const FOOTBALL_SEASON = Number(process.env.FOOTBALL_SEASON) || 2026;
+const FOOTBALL_SEASON = Number(process.env.FOOTBALL_SEASON) || undefined;
 const TOURNAMENT_NAME = process.env.TOURNAMENT_NAME || "Tournament Scoreboard";
 
 const auth = new Auth({
@@ -251,7 +251,7 @@ store
   .init()
   .then(() => {
     server.listen(PORT, () => {
-      console.log(`WC26 scoreboard listening on http://0.0.0.0:${PORT}`);
+      console.log(`Tournament scoreboard listening on http://0.0.0.0:${PORT}`);
       console.log(`Tournament: ${TOURNAMENT_NAME}`);
       console.log(`Data file: ${DATA_FILE}`);
       console.log(`Admin editing: ${auth.enabled ? "enabled" : "disabled (set ADMIN_PASSWORD)"}`);

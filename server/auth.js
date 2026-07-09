@@ -1,7 +1,7 @@
 import { createHmac, timingSafeEqual } from "node:crypto";
 
 const SESSION_TTL_MS = 12 * 60 * 60 * 1000;
-const COOKIE_NAME = "wc26_session";
+const COOKIE_NAME = "scoreboard_session";
 
 function base64url(input) {
   return Buffer.from(input).toString("base64url");
@@ -19,7 +19,7 @@ function safeEqual(a, b) {
 export class Auth {
   constructor({ password, secret }) {
     this.password = password ?? "";
-    this.secret = secret || "wc26-dev-secret-change-me";
+    this.secret = secret || "scoreboard-dev-secret-change-me";
     this.cookieName = COOKIE_NAME;
   }
 

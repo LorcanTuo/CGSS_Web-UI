@@ -1,7 +1,7 @@
 services:
-  wc26-scoreboard:
+  scoreboard:
     build: .
-    container_name: wc26-scoreboard
+    container_name: scoreboard
     restart: unless-stopped
     ports:
       - "8091:8080"
@@ -15,9 +15,9 @@ services:
       # Cloudflare Tunnel terminates HTTPS, so cookies can stay Secure.
       COOKIE_SECURE: "${COOKIE_SECURE:-true}"
       # Optional: enable automatic live score updates via API-Football (api-sports.io).
-      # Requires a paid plan for the 2026 World Cup season. Leave blank to disable.
+      # Leave blank to disable.
       FOOTBALL_API_KEY: "${FOOTBALL_API_KEY:-}"
-      FOOTBALL_SEASON: "${FOOTBALL_SEASON:-2026}"
+      FOOTBALL_SEASON: "${FOOTBALL_SEASON:-}"
     volumes:
       - scoreboard-data:/data
     networks:
