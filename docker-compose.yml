@@ -1,0 +1,31 @@
+services:
+  wc26-scoreboard:
+    build: .
+    container_name: wc26-scoreboard
+    restart: unless-stopped
+    ports:
+      - "8091:8080"
+    environment:
+      # Display name for the tournament shown in the page title and header.
+      TOURNAMENT_NAME: "${TOURNAMENT_NAME:-Tournament Scoreboard}"
+      # Set a strong password to unlock in-site editing.
+      ADMIN_PASSWORD: "${ADMIN_PASSWORD:-change-me}"
+      # Used to sign session cookies. Set to a long random string.
+      SESSION_SECRET: "${SESSION_SECRET:-please-change-this-secret}"
+      # Cloudflare Tunnel terminates HTTPS, so cookies can stay Secure.
+      COOKIE_SECURE: "${COOKIE_SECURE:-true}"
+      # Optional: enable automatic live score updates via API-Football (api-sports.io).
+      # Requires a paid plan for the 2026 World Cup season. Leave blank to disable.
+      FOOTBALL_API_KEY: "${FOOTBALL_API_KEY:-}"
+      FOOTBALL_SEASON: "${FOOTBALL_SEASON:-2026}"
+    volumes:
+      - scoreboard-data:/data
+    networks:
+      - homenas
+
+volumes:
+  scoreboard-data:
+
+networks:
+  homenas:
+    external: true

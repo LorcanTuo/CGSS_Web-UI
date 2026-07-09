@@ -1,0 +1,12 @@
+# Runtime data — never commit live scoreboard state
+.env
+.local-data/
+data/
+*.tmp
+
+# OS
+.DS_Store
+
+# Editor
+.vscode/
+*.swp

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101827" />
+    <title>Tournament Scoreboard</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+    <link rel="stylesheet" href="./src/admin.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow" id="tournament-eyebrow">Live Scoreboard</p>
+          <h1 id="tournament-name">Tournament Scoreboard</h1>
+        </div>
+        <div class="hero-card" aria-live="polite">
+          <span class="hero-card__label">Last updated</span>
+          <strong id="last-updated">Loading...</strong>
+        </div>
+      </header>
+
+      <div class="admin-bar">
+        <button type="button" id="admin-toggle" class="admin-toggle" aria-expanded="false">
+          Admin
+        </button>
+      </div>
+
+      <section class="admin-panel" id="admin-panel" hidden aria-label="Admin editor">
+        <div class="admin-panel__title">
+          <div>
+            <p class="eyebrow">Admin</p>
+            <h2>Edit predictions &amp; results</h2>
+          </div>
+          <button type="button" id="admin-logout" class="admin-ghost" hidden>Log out</button>
+        </div>
+
+        <div class="admin-login" id="admin-login">
+          <form id="admin-login-form" class="admin-login">
+            <label class="admin-field">
+              <span>Admin password</span>
+              <input type="password" id="admin-password" autocomplete="current-password" />
+            </label>
+            <button type="submit" class="admin-primary">Unlock editing</button>
+          </form>
+          <p class="admin-error" id="admin-login-error" hidden></p>
+        </div>
+
+        <div id="admin-editor" hidden>
+          <div class="admin-columns">
+            <div class="admin-section">
+              <h3>Matches</h3>
+              <div class="admin-api-actions" id="admin-api-actions" hidden>
+                <button type="button" id="admin-import-fixtures" class="admin-ghost">
+                  Import knockout fixtures
+                </button>
+                <button type="button" id="admin-sync-now" class="admin-ghost">Sync live scores</button>
+              </div>
+              <div id="admin-matches"></div>
+              <button type="button" id="admin-add-match" class="admin-add">Add match</button>
+              <div id="admin-finalists"></div>
+            </div>
+            <div class="admin-section">
+              <h3>Players</h3>
+              <div id="admin-players"></div>
+              <button type="button" id="admin-add-player" class="admin-add">Add player</button>
+            </div>
+          </div>
+
+          <div class="admin-actions">
+            <button type="button" id="admin-save" class="admin-primary">Save changes</button>
+            <p class="admin-status" id="admin-status" data-kind="info"></p>
+          </div>
+        </div>
+      </section>
+
+      <main>
+        <section class="panel">
+          <div class="panel__heading">
+            <div>
+              <p class="eyebrow">Leaderboard</p>
+              <h2>Current standings</h2>
+            </div>
+            <span class="pill" id="player-count">0 players</span>
+          </div>
+          <div class="board" id="leaderboard">
+            <div class="board__head" aria-hidden="true">
+              <span>Pos</span>
+              <span>Prev</span>
+              <span>Name</span>
+              <span>Final prediction</span>
+              <span>Designated goalscorer</span>
+              <span class="board__head-score">Overall</span>
+            </div>
+            <div id="leaderboard-body"></div>
+          </div>
+          <p class="board__hint">Tap a player to see their points breakdown.</p>
+        </section>
+      </main>
+    </div>
+
+    <template id="empty-state-template">
+      <div class="empty-state">
+        <h2>Scoreboard data unavailable</h2>
+        <p>The scoreboard API (<code>/api/data</code>) did not return valid data.</p>
+      </div>
+    </template>
+
+    <script type="module" src="./src/app.js?v=3"></script>
+    <script type="module" src="./src/admin.js?v=3"></script>
+  </body>
+</html>

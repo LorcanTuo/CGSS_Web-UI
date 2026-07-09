@@ -1,0 +1,38 @@
+{
+  "lastUpdated": null,
+  "actualFinalists": [],
+  "matches": [
+    {
+      "id": "match-1",
+      "apiFixtureId": null,
+      "stage": "Quarter-finals",
+      "kickoff": "",
+      "homeTeam": "Team A",
+      "awayTeam": "Team B",
+      "status": "scheduled",
+      "actual": { "home": null, "away": null },
+      "goalscorers": []
+    }
+  ],
+  "players": [
+    {
+      "name": "Example Player",
+      "finalPrediction": "Team A v Team C",
+      "predictedFinalists": ["Team A", "Team C"],
+      "designatedGoalscorerGroup": "Player Name",
+      "designatedGoalscorerKnockout": "Player Name",
+      "baseline": {
+        "matchday1": 0,
+        "matchday2": 0,
+        "matchday3": 0,
+        "groupTotal": 0,
+        "r32": 0,
+        "r16": 0,
+        "goalscorerPoints": 0
+      },
+      "predictions": {
+        "match-1": { "home": 2, "away": 1 }
+      }
+    }
+  ]
+}

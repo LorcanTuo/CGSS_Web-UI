@@ -1,0 +1,263 @@
+.admin-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.admin-toggle {
+  padding: 0.6rem 1rem;
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 0.12);
+  color: var(--accent);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.admin-toggle:hover {
+  background: rgba(56, 189, 248, 0.2);
+}
+
+.admin-panel {
+  margin-bottom: 1rem;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 1.5rem;
+  background: var(--panel);
+}
+
+.admin-panel[hidden] {
+  display: none;
+}
+
+.admin-panel__title {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.admin-login {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 22rem;
+}
+
+.admin-login input {
+  width: 100%;
+}
+
+.admin-error {
+  margin: 0;
+  color: #fca5a5;
+  font-size: 0.9rem;
+}
+
+.admin-columns {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.admin-section > h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+}
+
+.admin-card {
+  margin-bottom: 0.75rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--panel-strong);
+}
+
+.admin-card__header {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.admin-card h4 {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+}
+
+.admin-subtitle {
+  margin: 1rem 0 0.5rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.admin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+  gap: 0.75rem;
+}
+
+.admin-field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.admin-field > span {
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.admin-prediction {
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  border: 1px dashed var(--line);
+  border-radius: 0.75rem;
+}
+
+.admin-prediction__label {
+  margin: 0 0 0.5rem;
+  font-weight: 700;
+}
+
+.admin-scorers {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.admin-scorer {
+  display: grid;
+  grid-template-columns: 1fr 5rem auto;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+input,
+select {
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 0.6rem;
+  background: rgba(8, 17, 31, 0.85);
+  color: var(--text);
+  font: inherit;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.admin-add,
+.admin-remove,
+.admin-primary,
+.admin-ghost {
+  padding: 0.55rem 0.85rem;
+  border-radius: 0.7rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.admin-add {
+  margin-top: 0.5rem;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  background: transparent;
+  color: var(--accent);
+}
+
+.admin-remove {
+  border: 1px solid rgba(239, 68, 68, 0.45);
+  background: transparent;
+  color: #fca5a5;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.admin-primary {
+  border: none;
+  background: var(--accent);
+  color: #08111f;
+}
+
+.admin-ghost {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+}
+
+.admin-api-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.85rem;
+}
+
+.admin-paste {
+  margin: 0.5rem 0 1rem;
+  padding: 0.75rem;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.admin-paste__label {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.admin-paste__input {
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+  font: inherit;
+  padding: 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface, #0d1526);
+  color: var(--text);
+}
+
+.admin-paste__status {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.admin-paste__status[data-kind="error"] {
+  color: #ff6b6b;
+}
+
+.admin-status {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.admin-status[data-kind="success"] {
+  color: var(--good);
+}
+
+.admin-status[data-kind="error"] {
+  color: #fca5a5;
+}
+
+@media (min-width: 900px) {
+  .admin-columns {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: start;
+  }
+}
