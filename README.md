@@ -1,6 +1,6 @@
-# WC26 Live Scoreboard
+# Tournament Scoreboard
 
-Mobile-friendly live leaderboard for a 2026 FIFA World Cup predictions competition.
+Mobile-friendly live leaderboard for a predictions competition.
 Predictions and match results are edited directly in the site (protected by an admin
 password) and stored in a JSON file that persists on a Docker volume.
 
