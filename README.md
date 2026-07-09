@@ -40,7 +40,7 @@ docker compose up -d --build
 | `PORT`             | Port the server listens on.                         | `8080`                       |
 | `DATA_FILE`        | Path to the persisted JSON data file.               | `/data/scoreboard.json`      |
 | `FOOTBALL_API_KEY` | API-Football key to enable automatic live scores. Leave empty to disable. | _(empty = disabled)_ |
-| `FOOTBALL_SEASON`  | Season for API-Football fixtures.                   | `2026`                       |
+| `FOOTBALL_SEASON`  | Season year for API-Football fixtures.              | _(set to your season)_       |
 
 ## Editing in the site
 
@@ -57,14 +57,12 @@ The public view is read-only; only someone with the admin password can edit.
 ## Live score updates (optional)
 
 Set `FOOTBALL_API_KEY` to automatically pull scores and goalscorers from
-[API-Football](https://www.api-sports.io/). **A paid plan is required for the
-2026 World Cup season** (the free tier only allows seasons 2022–2024).
+[API-Football](https://www.api-sports.io/). Check your plan covers the season you need.
 
 How it works:
 
-1. In **Admin**, click **Import knockout fixtures** to add the upcoming
-   quarter-final → final matches (teams, kickoff times, and the API fixture link).
-   Review and **Save changes**.
+1. In **Admin**, click **Import fixtures** to add upcoming matches (teams, kickoff
+   times, and the API fixture link). Review and **Save changes**.
 2. Enter each player's predictions for those matches as normal.
 3. While a linked match is in play, the server polls the API every 60 seconds and
    updates the score, status, and goalscorers automatically. You can also click
@@ -75,10 +73,9 @@ add manually (without a link) is left alone. **Predictions are always entered by
 hand.** Scoring uses **normal time only** (0–90 + stoppage time); extra time and
 penalty shootouts never count.
 
-## Importing the spreadsheet
+## Seeding data
 
-You can seed data from the shared spreadsheet by writing it into the data file
-in this shape:
+You can seed initial data by writing it into the data file in this shape:
 
 - `matches[].actual.home` / `matches[].actual.away` — current score (or `null`).
 - `matches[].status` — `scheduled`, `live`, or `final`.
